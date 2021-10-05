@@ -1,7 +1,7 @@
 # Joint Learning of Multi-level Tasks for Diabetic Retinopathy Grading on Low-resolution Fundus Images
 
 
-![framework](./imgs/framework_final3.jpg)
+![framework](./imgs/framework_final3.pdf)
 
 ## 1. Environment
 - Python >= 3.7
