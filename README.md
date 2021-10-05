@@ -1,8 +1,7 @@
-# Deep Multi-Task Learning for Diabetic Retinopathy Grading in Fundus Images
-- This is the official repository of the paper "Deep Multi-Task Learning for Diabetic Retinopathy Grading in Fundus Images
-" from **AAAI 2021**[[Paper Link]](https://www.aaai.org/AAAI21Papers/AAAI-2900.WangX.pdf, "Paper Link")
+# Joint Learning of Multi-level Tasks for Diabetic Retinopathy Grading on Low-resolution Fundus Images
 
-![framework](./imgs/framework_final.jpg)
+
+![framework](./imgs/framework_final3.jpg)
 
 ## 1. Environment
 - Python >= 3.7
@@ -18,56 +17,19 @@ HR images are downsampled by a factor of 4 to generate LR
 images at resolution of 256 × 256.
 
 
-## 3. Training
-The details of the hyper-parameters are all listed in the `train.py`. Use the below command to train our model on the SIGF database.
+## 3. Training and test
 
+There are several training stages for training the DeepMT-DR model. Firstly, use the following instruction.
 ```
-    python ./train.py 
-```
-
-## 4. Test
-Download the pre-trained model in [[Dropbox]](https://www.dropbox.com/s/e1oebawbp5wlpvm/pretrained_model.zip?dl=0). Then put the file in tghe directory of 
-`pretrained_model`. Use the below command to test the model on the SIGF database.
-```
-    python ./test.py 
+    python ./train_stage1_1.py 
 ```
 
-## 5. Compared Methods
-
-The network re-implenmentation of [[Chen et al.]](https://ieeexplore.ieee.org/abstract/document/7318462/, "Chen") is in the file of:
-`chen_net.py`
-and from the directory of `./Compared Methods`
-
-
-
-
-## 6. Ablation Study
-
-If you are interested in our ablation study, please see `./Ablation study`
-
-
-
-
-## 7. Network Interpretability
-
-1. If you are interested in the visualization method and results used for showing the interpretability 
-of our method, please refer to the directory of `./saliency`
-
-
-
-2. Or you can just see the images in the directory of `./visualization_result`
-for more visualization results. Some examples of the visualization rsults are shown here.
-
-![Database](./imgs/figure1.jpg)
-
-
-## 8. Citation
-If you find our work useful in your research or publication, please cite our work:
+Then, use the following instruction
 ```
-@article{Li2020deep,
-  title={DeepGF: Glaucoma Forecast Using the Sequential Fundus Images.},
-  author={Li, Liu and Wang, Xiaofei and  Xu, Mai and Liu, Hanruo},
-  journal={MICCAI},
-  year={2020}
-}
+    python ./train_stage1_2.py 
+```
+
+Finally, use the following instruction
+```
+    python ./train_stage2.py 
 ```
